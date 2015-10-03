@@ -1,7 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-=======
 from .models import UserProfile, Mentorship
 
 # Register your models here.
@@ -12,4 +11,3 @@ class UserProfileAdmin(admin.ModelAdmin):
 @admin.register(Mentorship)
 class MentorshipAdmin(admin.ModelAdmin):
     list_display = ("id", "mentor", "mentoree")
-
