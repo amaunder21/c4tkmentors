@@ -6,3 +6,5 @@ psycopg2==2.6.1
 SQLAlchemy==1.0.8
 wheel==0.24.0
 whitenoise==2.0.4
+djrill==1.4
+django-password-reset==0.7
