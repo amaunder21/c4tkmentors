@@ -5,8 +5,12 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from forms import RegistrationForm
 
+
+
+
 def index(request):
     return HttpResponse("Hello, world. You're at the Mentor index.")
+
 
 
 def register(request):
@@ -21,8 +25,6 @@ def register(request):
         'form': form,
 	})
 
-
-
 def lostpass(request):
 	return HttpResponse("lostpass.")
 
@@ -30,15 +32,3 @@ def success(request):
 	return HttpResponse("Successful registration.")
 
 	
-
-
-
-
-
-
-
-
-
-
-
-# Create your views here.
