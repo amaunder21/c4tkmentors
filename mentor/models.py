@@ -16,15 +16,23 @@ class UserProfile(models.Model):
         (MARITAL_STATUS_DIVORCED, "Divorced")
     )
 
-    STATES = [
-        "new",
-        "matched"
-    ]
+    STATE_NEW = "new"
+    STATE_AWAITING_MATCH = "awaiting_match"
+    STATE_MATCHED = "matched"
+
+    STATES = (
+        (STATE_NEW, "New"),
+        (STATE_AWAITING_MATCH, "Awaiting Match"),
+        (STATE_MATCHED, "Matched")
+    )
 
     state = models.CharField("State",
         max_length=settings.DEFAULT_CHAR_LENGTH,
-        default=STATES[0])
+        default=STATE_NEW,
+        choices=STATES)
     user = models.OneToOneField(User, verbose_name="User")
+    desires_mentor = models.BooleanField("Wants a Mentor", default=False)
+    desires_mentoree = models.BooleanField("Wants a Mentoree", default=False)
     name = models.CharField("Full Name", max_length=settings.DEFAULT_CHAR_LENGTH)
     date_of_birth = models.DateField("Date of Birth")
     location = models.CharField("Location", max_length=settings.DEFAULT_CHAR_LENGTH)
@@ -41,3 +49,13 @@ class UserProfile(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class Mentorship(models.Model):
+    mentor = models.OneToOneField(UserProfile,
+        verbose_name="Mentor",
+        related_name="mentor",
+        limit_choices_to={ "desires_mentor": True })
+    mentoree = models.OneToOneField(UserProfile,
+        verbose_name="Mentoree",
+        related_name="mentoree",
+        limit_choices_to={ "desires_mentoree": True })
