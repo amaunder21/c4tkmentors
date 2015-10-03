@@ -32,20 +32,23 @@ class UserProfile(models.Model):
         choices=STATES)
     user = models.OneToOneField(User, verbose_name="User")
     desires_mentor = models.BooleanField("Wants a Mentor", default=False)
+    mentor_bio = models.TextField("Mentor Biography", null=True)
     desires_mentoree = models.BooleanField("Wants a Mentoree", default=False)
-    name = models.CharField("Full Name", max_length=settings.DEFAULT_CHAR_LENGTH)
-    date_of_birth = models.DateField("Date of Birth")
-    location = models.CharField("Location", max_length=settings.DEFAULT_CHAR_LENGTH)
-    occupation = models.CharField("Occupation", max_length=settings.DEFAULT_CHAR_LENGTH)
+    mentoree_bio = models.TextField("Mentoree Biography", null=True)
+    name = models.CharField("Full Name", max_length=settings.DEFAULT_CHAR_LENGTH, null=True)
+    date_of_birth = models.DateField("Date of Birth", null=True)
+    location = models.CharField("Location", max_length=settings.DEFAULT_CHAR_LENGTH, null=True)
+    occupation = models.CharField("Occupation", max_length=settings.DEFAULT_CHAR_LENGTH, null=True)
     marital_status = models.CharField("Marital Status",
         max_length=settings.DEFAULT_CHAR_LENGTH,
-        choices=MARITAL_STATUSES
+        choices=MARITAL_STATUSES,
+        null=True
         )
-    kids = models.CharField("Children", max_length=settings.DEFAULT_CHAR_LENGTH)
-    education = models.CharField("Education", max_length=settings.DEFAULT_CHAR_LENGTH)
-    interests = models.TextField("Interests")
-    life_experience = models.TextField("Life Experience")
-    skills = models.TextField("Skills")
+    kids = models.CharField("Children", max_length=settings.DEFAULT_CHAR_LENGTH, null=True)
+    education = models.CharField("Education", max_length=settings.DEFAULT_CHAR_LENGTH, null=True)
+    interests = models.TextField("Interests", null=True)
+    life_experience = models.TextField("Life Experience", null=True)
+    skills = models.TextField("Skills", null=True)
 
     def __unicode__(self):
         return self.name
