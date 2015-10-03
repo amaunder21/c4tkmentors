@@ -38,7 +38,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mentor'
+    'mentor',
+    'djrill',
+    'password_reset',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -118,3 +121,9 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # App specific config
 DEFAULT_CHAR_LENGTH = 500
+
+
+MANDRILL_API_KEY = "JtoI8YxLpFf5GZBcSXr_WA"
+EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
+DEFAULT_FROM_EMAIL = "mentor@mentor.lol"
+
