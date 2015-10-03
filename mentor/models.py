@@ -51,7 +51,10 @@ class UserProfile(models.Model):
     skills = models.TextField("Skills", null=True)
 
     def __unicode__(self):
-        return self.name
+        if self.name != None:
+            return self.name
+        else:
+            return self.user.email
 
 class Mentorship(models.Model):
     mentor = models.OneToOneField(UserProfile,
@@ -62,4 +65,3 @@ class Mentorship(models.Model):
         verbose_name="Mentoree",
         related_name="mentoree",
         limit_choices_to={ "desires_mentoree": True })
-
