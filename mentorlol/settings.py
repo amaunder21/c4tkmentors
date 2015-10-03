@@ -40,8 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'mentor',
     'djrill',
-    'password_reset',
-    'mentor'
+    'password_reset'
 
 )
 
@@ -134,4 +133,3 @@ DEFAULT_CHAR_LENGTH = 500
 MANDRILL_API_KEY = "JtoI8YxLpFf5GZBcSXr_WA"
 EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
 DEFAULT_FROM_EMAIL = "mentor@mentor.lol"
-
