@@ -114,3 +114,7 @@ STATICFILES_DIRS = (
 
 # "Simplified" static files hosting. Heroku says we need this.
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+# App specific config
+DEFAULT_CHAR_LENGTH = 500
