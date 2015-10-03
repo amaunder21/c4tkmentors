@@ -39,7 +39,5 @@ class UserProfile(models.Model):
     life_experience = models.TextField("Life Experience")
     skills = models.TextField("Skills")
 
-    list_filter = ("state", "maritalStatus")
-
     def __unicode__(self):
         return self.name
