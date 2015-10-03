@@ -21,21 +21,20 @@ class UserProfile(models.Model):
         "matched"
     ]
 
-    state = models.CharField(
+    state = models.CharField("State",
         max_length=settings.DEFAULT_CHAR_LENGTH,
         default=STATES[0])
-    user = models.OneToOneField(User, verbose_name="The user this profile belongs to")
-    name = models.CharField(max_length=settings.DEFAULT_CHAR_LENGTH)
-    emailAddress = models.EmailField()
-    dateOfBirth = models.DateField()
-    location = models.CharField(max_length=settings.DEFAULT_CHAR_LENGTH)
-    occupation = models.CharField(max_length=settings.DEFAULT_CHAR_LENGTH)
-    maritalStatus = models.CharField(
+    user = models.OneToOneField(User, verbose_name="User")
+    name = models.CharField("Full Name", max_length=settings.DEFAULT_CHAR_LENGTH)
+    dateOfBirth = models.DateField("Date of Birth")
+    location = models.CharField("Location", max_length=settings.DEFAULT_CHAR_LENGTH)
+    occupation = models.CharField("Occupation", max_length=settings.DEFAULT_CHAR_LENGTH)
+    maritalStatus = models.CharField("Marital Status",
         max_length=settings.DEFAULT_CHAR_LENGTH,
         choices=MARITAL_STATUSES
         )
-    kids = models.CharField(max_length=settings.DEFAULT_CHAR_LENGTH)
-    education = models.CharField(max_length=settings.DEFAULT_CHAR_LENGTH)
-    interests = models.TextField()
-    lifeExperience = models.TextField()
-    skills = models.TextField()
+    kids = models.CharField("Children", max_length=settings.DEFAULT_CHAR_LENGTH)
+    education = models.CharField("Education", max_length=settings.DEFAULT_CHAR_LENGTH)
+    interests = models.TextField("Interests")
+    lifeExperience = models.TextField("Life Experience")
+    skills = models.TextField("Skills")
