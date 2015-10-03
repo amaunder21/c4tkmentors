@@ -21,6 +21,9 @@ class UserProfile(models.Model):
         "matched"
     ]
 
+    state = models.CharField(
+        max_length=settings.DEFAULT_CHAR_LENGTH,
+        default=STATES[0])
     user = models.OneToOneField(User, verbose_name="The user this profile belongs to")
     name = models.CharField(max_length=settings.DEFAULT_CHAR_LENGTH)
     emailAddress = models.EmailField()
