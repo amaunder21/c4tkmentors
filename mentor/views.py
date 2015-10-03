@@ -29,6 +29,4 @@ def lostpass(request):
 	return HttpResponse("lostpass.")
 
 def success(request):
-	return HttpResponse("Successful registration.")
-
-	
+    return render(request ,"registartion/success.html")
