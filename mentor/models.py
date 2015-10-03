@@ -26,15 +26,20 @@ class UserProfile(models.Model):
         default=STATES[0])
     user = models.OneToOneField(User, verbose_name="User")
     name = models.CharField("Full Name", max_length=settings.DEFAULT_CHAR_LENGTH)
-    dateOfBirth = models.DateField("Date of Birth")
+    date_of_birth = models.DateField("Date of Birth")
     location = models.CharField("Location", max_length=settings.DEFAULT_CHAR_LENGTH)
     occupation = models.CharField("Occupation", max_length=settings.DEFAULT_CHAR_LENGTH)
-    maritalStatus = models.CharField("Marital Status",
+    marital_status = models.CharField("Marital Status",
         max_length=settings.DEFAULT_CHAR_LENGTH,
         choices=MARITAL_STATUSES
         )
     kids = models.CharField("Children", max_length=settings.DEFAULT_CHAR_LENGTH)
     education = models.CharField("Education", max_length=settings.DEFAULT_CHAR_LENGTH)
     interests = models.TextField("Interests")
-    lifeExperience = models.TextField("Life Experience")
+    life_experience = models.TextField("Life Experience")
     skills = models.TextField("Skills")
+
+    list_filter = ("state", "maritalStatus")
+
+    def __unicode__(self):
+        return self.name
