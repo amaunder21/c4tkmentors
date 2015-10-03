@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'mentor',
     'djrill',
     'password_reset',
+    'mentor'
 
 )
 
@@ -118,6 +119,13 @@ STATICFILES_DIRS = (
 # "Simplified" static files hosting. Heroku says we need this.
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+if "MANDRILL_API_KEY" in os.environ:
+    MANDRILL_API_KEY = "<your Mandrill key>"
+else:
+    MANDRILL_API_KEY = "<Placeholder Key>"
+
+EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
+DEFAULT_FROM_EMAIL = "eail@mentor.lol"
 
 # App specific config
 DEFAULT_CHAR_LENGTH = 500
